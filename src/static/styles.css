@@ -73,6 +73,43 @@ header h2 {
   font-size: 1.2rem;
 }
 
+
+/* Announcement Banner Styles */
+.announcement-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary);
+  color: var(--secondary-text);
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.banner-dismiss {
+  background: none;
+  border: none;
+  color: var(--secondary-text);
+  font-size: 1.5rem;
+  margin-left: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 8px;
+  transition: color 0.2s;
+}
+
+.banner-dismiss:hover {
+  color: var(--primary-dark);
+}
+
+.announcement-banner.hidden {
+  display: none;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +166,8 @@ section h3 {
   }
 
   .sidebar-filters {
-    width: 200px; /* Reduced from 250px to 200px to make the sidebar narrower */
+    width: 200px;
+    /* Reduced from 250px to 200px to make the sidebar narrower */
     position: sticky;
     top: 15px;
     max-height: calc(100vh - 30px);
@@ -361,12 +399,10 @@ button {
 .skeleton-line {
   height: 10px;
   margin-bottom: 8px;
-  background: linear-gradient(
-    90deg,
-    var(--border-light) 25%,
-    var(--border) 50%,
-    var(--border-light) 75%
-  );
+  background: linear-gradient(90deg,
+      var(--border-light) 25%,
+      var(--border) 50%,
+      var(--border-light) 75%);
   background-size: 200% 100%;
   border-radius: 3px;
   animation: shimmer 1.5s infinite;
@@ -390,6 +426,7 @@ button {
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -485,7 +522,8 @@ footer {
 
 .search-box input {
   flex: 1;
-  min-width: 0; /* Add this to prevent input from overflowing */
+  min-width: 0;
+  /* Add this to prevent input from overflowing */
   padding: 6px 10px;
   border: 1px solid var(--border);
   border-right: none;
@@ -502,8 +540,10 @@ footer {
 
 .search-box button {
   width: 36px;
-  height: 100%; /* Make button match input height */
-  min-height: 32px; /* Ensure minimum clickable area */
+  height: 100%;
+  /* Make button match input height */
+  min-height: 32px;
+  /* Ensure minimum clickable area */
   background: var(--primary);
   color: white;
   border: none;

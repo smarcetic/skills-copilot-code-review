@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Announcement banner dismiss logic
+  const announcementBanner = document.getElementById("announcement-banner");
+  const dismissBannerBtn = document.getElementById("dismiss-banner");
+  if (announcementBanner && dismissBannerBtn) {
+    dismissBannerBtn.addEventListener("click", () => {
+      announcementBanner.classList.add("hidden");
+    });
+  }
   // DOM elements
   const activitiesList = document.getElementById("activities-list");
   const messageDiv = document.getElementById("message");
@@ -532,42 +540,39 @@ document.addEventListener("DOMContentLoaded", () => {
         <h5>Current Participants:</h5>
         <ul>
           ${details.participants
-            .map(
-              (email) => `
+        .map(
+          (email) => `
             <li>
               ${email}
-              ${
-                currentUser
-                  ? `
+              ${currentUser
+              ? `
                 <span class="delete-participant tooltip" data-activity="${name}" data-email="${email}">
                   ✖
                   <span class="tooltip-text">Unregister this student</span>
                 </span>
               `
-                  : ""
-              }
+              : ""
+            }
             </li>
           `
-            )
-            .join("")}
+        )
+        .join("")}
         </ul>
       </div>
       <div class="activity-card-actions">
-        ${
-          currentUser
-            ? `
-          <button class="register-button" data-activity="${name}" ${
-                isFull ? "disabled" : ""
-              }>
+        ${currentUser
+        ? `
+          <button class="register-button" data-activity="${name}" ${isFull ? "disabled" : ""
+        }>
             ${isFull ? "Activity Full" : "Register Student"}
           </button>
         `
-            : `
+        : `
           <div class="auth-notice">
             Teachers can register students.
           </div>
         `
-        }
+      }
       </div>
     `;
 
